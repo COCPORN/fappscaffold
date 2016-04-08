@@ -17,7 +17,7 @@ var Json = exports.Json = function ($exports) {
 }({});
 
 var Observable = exports.Observable = function ($exports) {
-  var Globals = $exports.Globals = function () {
+  var Globals = function () {
     function Globals() {
       _classCallCheck(this, Globals);
     }
@@ -34,6 +34,30 @@ var Observable = exports.Observable = function ($exports) {
 
     return Globals;
   }();
+
+  var implementation = function ($exports) {
+    var createInt = function (i) {
+      return Globals.observable(i);
+    };
+
+    var createString = function (s) {
+      return Globals.observable(s);
+    };
+
+    var createFloat = function (n) {
+      return Globals.observable(n);
+    };
+
+    var createTypedList = function (elements) {
+      return Globals.observable(elements);
+    };
+
+    var createObservable = function () {
+      return Globals.observable.Invoke();
+    };
+
+    return $exports;
+  }({});
 
   return $exports;
 }({});

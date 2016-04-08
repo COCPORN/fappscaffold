@@ -10,6 +10,10 @@
 			<Text Value="{obsY}" />
 			<Text Value="{obsZ}" />
 			<Text Value="{obsU}" />
+			<Each Items="{names}">
+				<Text Value="{}" />
+			</Each>
+			<Text Value="{numNames}" />
 		</StackPanel>
 		
 	</ClientPanel>

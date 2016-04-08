@@ -54,8 +54,16 @@ module Module1 =
     let obsX = Observable.createString "Heia!"
     let obsY = Observable.createFloat 89.
 
+    //let names = Observable.createList [|"John"; "Paul"; "Ringo"; "Per"|]
+    let names = Observable.createString("")
+    names.replaceAll([|"John"; "Paul"; "Ringo"|])
+
+    let numNames = names.countWhere(fun n -> n.Length > 4)
+
     let obsZ = obsY.map(fun old -> old + 1.)
-    let obsU = obsZ.map(fun oldold -> oldold + 3. |> string)
+    let obsU = obsZ.mapi(fun (p, idx) -> p + (idx |> float))
+
+    let plainObservable = Observable.createObservable ()
 
     let buttonClicked args =
         Console.log (Json.stringify args)
@@ -63,4 +71,4 @@ module Module1 =
     Console.log (obsX.value)
     Console.log (obsY.value)
 
-    let X = "Hello again again from F#!" 
+    let X = "Hello again from F#!" 
