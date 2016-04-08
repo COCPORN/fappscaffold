@@ -1,0 +1,1 @@
+fable --module=commonjs --outDir=src/JavaScript/Generated/ src/Fsharp/Program/Program.fsproj

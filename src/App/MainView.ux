@@ -1,0 +1,15 @@
+<App Theme="Basic">
+	<JavaScript File="fablecore.js" ux:Global="fable-core" /> 
+	<JavaScript File="../JavaScript/Generated/Library1.js" />
+
+	<ClientPanel>		
+		<StackPanel>
+			<Text Value="{X}" />
+			<Button Text="Click me!" Clicked="{buttonClicked}" />
+			<Text Value="{o1}" /> 
+			<Text Value="{seqOdd}" />
+		</StackPanel>
+		
+	</ClientPanel>
+</App>
+
