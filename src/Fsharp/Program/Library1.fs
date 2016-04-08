@@ -13,7 +13,8 @@ module Module1 =
     //    |> Array.map string 
     //    |> System.String.Concat
     //Observable.init
-    let o1 = Observable.create 3
+    #if false
+    let o1 = Observable()
     let o2 = Observable.create "PenguinFucker"
     let private o3 = Observable.create ""
     //let o3 = Observable.create (1, 2, 3)
@@ -43,11 +44,23 @@ module Module1 =
         |> Seq.map string
         |> String.concat ", "
         |> Observable.create
-
+ 
 
     let stringResult = seq 
                         |> Seq.fold (fun acc elem -> acc + elem) 0
                         |> string
- 
+ #endif
 
-    let X = "Hello again again from F#!" + (add 5 6 |> string) + " " + stringResult 
+    let obsX = Observable.createString "Heia!"
+    let obsY = Observable.createFloat 89.
+
+    let obsZ = obsY.map(fun old -> old + 1.)
+    let obsU = obsZ.map(fun oldold -> oldold + 3. |> string)
+
+    let buttonClicked args =
+        Console.log (Json.stringify args)
+        
+    Console.log (obsX.value)
+    Console.log (obsY.value)
+
+    let X = "Hello again again from F#!" 

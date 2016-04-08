@@ -6,8 +6,10 @@
 		<StackPanel>
 			<Text Value="{X}" />
 			<Button Text="Click me!" Clicked="{buttonClicked}" />
-			<Text Value="{o1}" /> 
-			<Text Value="{seqOdd}" />
+			<Text Value="{obsX}" /> 
+			<Text Value="{obsY}" />
+			<Text Value="{obsZ}" />
+			<Text Value="{obsU}" />
 		</StackPanel>
 		
 	</ClientPanel>
