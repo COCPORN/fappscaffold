@@ -1,0 +1,5 @@
+src/App/.uno/
+src/App/build/
+src/Fsharp/Program/.vs/
+src/Fsharp/Program/bin/
+src/Fsharp/Program/obj/
