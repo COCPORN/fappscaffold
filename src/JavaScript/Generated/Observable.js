@@ -37,19 +37,19 @@ var Observable = exports.Observable = function ($exports) {
 
   var implementation = function ($exports) {
     var createInt = function (i) {
-      return Globals.observable(i);
+      return Globals.observable.Invoke(i);
     };
 
     var createString = function (s) {
-      return Globals.observable(s);
+      return Globals.observable.Invoke(s);
     };
 
     var createFloat = function (n) {
-      return Globals.observable(n);
+      return Globals.observable.Invoke(n);
     };
 
     var createTypedList = function (elements) {
-      return Globals.observable(elements);
+      return Globals.observable.Invoke(elements);
     };
 
     var createObservable = function () {
