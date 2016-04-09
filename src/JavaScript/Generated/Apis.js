@@ -11,7 +11,3 @@ var Console = exports.Console = function ($exports) {
 var Json = exports.Json = function ($exports) {
   return $exports;
 }({});
-
-var Lifecycle = exports.Lifecycle = function ($exports) {
-  return $exports;
-}({});

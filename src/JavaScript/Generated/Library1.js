@@ -3,11 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.X = exports.buttonClicked = exports.plainObservable = exports.obsZ = exports.numNames = exports.names = exports.kiss = exports.obsY = exports.obsX = exports.Player = undefined;
-
-var _Lifecycle = require("FuseJS/Lifecycle");
-
-var _Lifecycle2 = _interopRequireDefault(_Lifecycle);
+exports.X = exports.buttonClicked = exports.plainObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.obsX = exports.observableNumber = exports.observableString = undefined;
 
 var _Observable = require("FuseJS/Observable");
 
@@ -17,9 +13,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-_Lifecycle2.default.onEnteringForeground(function (unitVar0) {
-  console.log("Entering foreground");
+var observableString = exports.observableString = (0, _Observable2.default)("Testing");
+var observableNumber = exports.observableNumber = observableString.map(function (s) {
+  return s.length;
 });
+var obsX = exports.obsX = (0, _Observable2.default)("Heia!");
+var obsY = exports.obsY = (0, _Observable2.default)(89);
+var kiss = exports.kiss = (0, _Observable2.default)(["Paul", "Ace"]);
 
 var Player = exports.Player = function Player($arg0, $arg1) {
   _classCallCheck(this, Player);
@@ -28,9 +28,6 @@ var Player = exports.Player = function Player($arg0, $arg1) {
   this.age = $arg1;
 };
 
-var obsX = exports.obsX = (0, _Observable2.default)("Heia!");
-var obsY = exports.obsY = (0, _Observable2.default)(89);
-var kiss = exports.kiss = (0, _Observable2.default)(["Paul", "Ace"]);
 var names = exports.names = (0, _Observable2.default)();
 names.replaceAll([new Player("John", 71), new Player("Ringo", 45), new Player("Paul", 69)]);
 var numNames = exports.numNames = names.count(function (n) {
@@ -39,12 +36,12 @@ var numNames = exports.numNames = names.count(function (n) {
 var obsZ = exports.obsZ = obsY.map(function (old) {
   return old + 1;
 });
+var plainObservable = exports.plainObservable = (0, _Observable2.default)();
+plainObservable.value = "Fuckfaaaace2";
 var obsU = obsZ.map(function (tupledArg) {
   var p, idx;
   return p = tupledArg[0], idx = tupledArg[1], p + idx;
 });
-var plainObservable = exports.plainObservable = (0, _Observable2.default)();
-plainObservable.value = "Fuckfaaaace2";
 
 var buttonClicked = exports.buttonClicked = function (args) {
   return console.log(JSON.stringify(args));
