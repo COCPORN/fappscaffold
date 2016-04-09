@@ -9,10 +9,15 @@
 			<Text Value="{obsX}" /> 
 			<Text Value="{obsY}" />
 			<Text Value="{obsZ}" />
-			<Text Value="{obsU}" />
-			<Each Items="{names}">
-				<Text Value="{}" />
-			</Each>
+			<Text Value="{plainObservable}" />
+			<StackPanel>
+				<Each Items="{names}">
+					<StackPanel Orientation="Horizontal">
+						<Text Value="{name}" />
+						<Text Value="{age}" />
+					</StackPanel>
+				</Each>
+			</StackPanel>
 			<Text Value="{numNames}" />
 		</StackPanel>
 		

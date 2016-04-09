@@ -1,14 +1,10 @@
 declare namespace FuseJS {
 	
-	interface Observable {
-		sprock(): void; 
+	module lifecycle {
+		function open() : void;
 	}
 
-	interface ObservableFactory {
-		(name: string) : Observable;
-		(val: number) : Observable;
+	declare module "FuseJS/Lifecycle" {
+		export = lifecycle;
 	}
-
-	declare var observable : ObservableFactory;
-
 }
