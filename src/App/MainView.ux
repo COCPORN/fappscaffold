@@ -10,6 +10,7 @@
 			<Text Value="{obsY}" />
 			<Text Value="{obsZ}" />
 			<Text Value="{plainObservable}" />
+			<Text Value="{untypedObservable}" />
 			<StackPanel>
 				<Each Items="{names}">
 					<StackPanel Orientation="Horizontal">
