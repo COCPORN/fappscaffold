@@ -3,13 +3,13 @@
 open Fuse
 open Fable.Core
 
-module Module1 = 
-
-
-    let observableString = Observable.createWith "Testing"
+module Module1 =    
+    let observableString = Observable.createWith "Testing"    
     let observableNumber = observableString.map(fun s -> s.Length)
     
     let obsX = Observable.createWith "Heia!"
+    let unsafeObsX = Observable.createUnsafeWith "Hoheya!"
+    unsafeObsX.valueOverride <- 15
     let obsY = Observable.createWith 89.
     
     let kiss = Observable.createList [| "Paul"; "Ace" |] // Doesn't work
@@ -28,14 +28,21 @@ module Module1 =
 
     let obsZ = obsY.map(fun old -> old + 1.)
     
-    let plainObservable = Observable.create ()
+    let untypedObservable = Observable.create ()
+    untypedObservable.value <- "WOHEY!"
 
-    plainObservable.value <- "Fuckfaaaace2"
+    let untypedProjection = 
+        untypedObservable.map(fun o -> 
+            match o with
+            | :? string as str -> str + " matched"
+            | _ -> failwith "Didn't expect that, no sir")
 
     let private obsU = obsZ.mapi(fun (p, idx) -> p + (idx |> float)) // Doesn't work
 
-    let buttonClicked args =
+    let buttonClicked args =     
         Console.log (Json.stringify args)
+        //let x = Args.toString args?x
+        //Console.log (x)
         
     Console.log (obsX.value)
     Console.log (obsY.value)

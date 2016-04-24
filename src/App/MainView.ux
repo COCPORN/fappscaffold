@@ -1,5 +1,5 @@
 <App Theme="Basic">
-	<JavaScript File="fablecore.js" ux:Global="fable-core" /> 
+	<JavaScript File="fablecore.js" ux:Global="fable-core" /> 	
 	<JavaScript File="../JavaScript/Generated/Library1.js" />
 
 	<ClientPanel>		
@@ -11,6 +11,7 @@
 			<Text Value="{obsZ}" />
 			<Text Value="{plainObservable}" />
 			<Text Value="{untypedObservable}" />
+			<Text Value="{untypedProjection}" />
 			<StackPanel>
 				<Each Items="{names}">
 					<StackPanel Orientation="Horizontal">

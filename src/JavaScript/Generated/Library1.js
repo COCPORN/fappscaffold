@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.X = exports.buttonClicked = exports.plainObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.obsX = exports.observableNumber = exports.observableString = undefined;
+exports.X = exports.buttonClicked = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = undefined;
 
 var _Observable = require("FuseJS/Observable");
 
@@ -18,6 +18,8 @@ var observableNumber = exports.observableNumber = observableString.map(function 
   return s.length;
 });
 var obsX = exports.obsX = (0, _Observable2.default)("Heia!");
+var unsafeObsX = exports.unsafeObsX = (0, _Observable2.default)("Hoheya!");
+unsafeObsX.value = 15;
 var obsY = exports.obsY = (0, _Observable2.default)(89);
 var kiss = exports.kiss = (0, _Observable2.default)(["Paul", "Ace"]);
 
@@ -36,8 +38,14 @@ var numNames = exports.numNames = names.count(function (n) {
 var obsZ = exports.obsZ = obsY.map(function (old) {
   return old + 1;
 });
-var plainObservable = exports.plainObservable = (0, _Observable2.default)();
-plainObservable.value = "Fuckfaaaace2";
+var untypedObservable = exports.untypedObservable = (0, _Observable2.default)();
+untypedObservable.value = "WOHEY!";
+var untypedProjection = exports.untypedProjection = untypedObservable.map(function (o) {
+  var str;
+  return typeof o === "string" ? (str = o, str + " matched") : function () {
+    throw "Didn't expect that, no sir";
+  }();
+});
 var obsU = obsZ.map(function (tupledArg) {
   var p, idx;
   return p = tupledArg[0], idx = tupledArg[1], p + idx;
