@@ -7,5 +7,3 @@ Prerequisites are:
 - [Fuse](http://www.fusetools.com)
 - [F#](http://fsharp.org)
 - [Fable](https://github.com/fsprojects/Fable)
-
-Which can be installed from: 
