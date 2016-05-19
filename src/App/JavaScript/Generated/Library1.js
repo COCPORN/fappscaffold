@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = exports.counter = undefined;
 
+var _Environment = require("FuseJS/Environment");
+
+var _Environment2 = _interopRequireDefault(_Environment);
+
 var _Lifecycle = require("FuseJS/Lifecycle");
 
 var _Lifecycle2 = _interopRequireDefault(_Lifecycle);
@@ -26,6 +30,12 @@ var _Observable3 = _interopRequireDefault(_Observable2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+_Environment2.default.iOS ? console.log("Running on iOS") : null;
+_Environment2.default.android ? console.log("Running on Android") : null;
+_Environment2.default.preview ? console.log("Running in preview mode") : null;
+_Environment2.default.mobile ? console.log("Running on iOS or Android") : null;
+_Environment2.default.desktop ? console.log("Running on desktop") : null;
 
 _Lifecycle2.default.onEnteringForeground = function (unitVar0) {
   console.log("Entering foreground, new style");

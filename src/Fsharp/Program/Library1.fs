@@ -5,6 +5,12 @@ open Fable.Core
 
 module Module1 =    
 
+    if (Environment.iOS) then Console.log("Running on iOS")
+    if (Environment.android) then Console.log("Running on Android")
+    if (Environment.preview) then Console.log("Running in preview mode")
+    if (Environment.mobile) then Console.log("Running on iOS or Android")
+    if (Environment.desktop) then Console.log("Running on desktop")
+
     Lifecycle.onEnteringForeground <- fun () -> Console.log("Entering foreground, new style")
     Lifecycle.onEnteringBackground <- fun () -> Console.log("Entering background, new style")
 
