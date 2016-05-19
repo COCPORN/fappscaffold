@@ -5,8 +5,8 @@ open Fable.Core
 
 module Module1 =    
 
-    Lifecycle.onEnteringForeground (fun () -> Console.log("Entering foreground"))
-    Lifecycle.onEnteringBackground (fun () -> Console.log("Entering background"))
+    Lifecycle.onEnteringForeground <- fun () -> Console.log("Entering foreground, new style")
+    Lifecycle.onEnteringBackground <- fun () -> Console.log("Entering background, new style")
 
     InterApp.onReceivedUri <- fun str -> Console.log ("Received: " + str)
 

@@ -5,7 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = exports.counter = undefined;
 
-var _Apis = require("./Apis");
+var _Lifecycle = require("FuseJS/Lifecycle");
+
+var _Lifecycle2 = _interopRequireDefault(_Lifecycle);
 
 var _InterApp = require("FuseJS/InterApp");
 
@@ -25,13 +27,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-_Apis.Lifecycle.onEnteringForeground(function (unitVar0) {
-  console.log("Entering foreground");
-});
+_Lifecycle2.default.onEnteringForeground = function (unitVar0) {
+  console.log("Entering foreground, new style");
+};
 
-_Apis.Lifecycle.onEnteringBackground(function (unitVar0) {
-  console.log("Entering background");
-});
+_Lifecycle2.default.onEnteringBackground = function (unitVar0) {
+  console.log("Entering background, new style");
+};
 
 _InterApp2.default.onReceivedUri = function (str) {
   console.log("Received: " + str);
