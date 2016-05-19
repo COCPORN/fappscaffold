@@ -5,6 +5,7 @@
      	"Fuse.BasicTheme",
   ],
   "Includes": [
-    "*"    
+    "*",
+    "**.js:Bundle"  
   ]
 }
