@@ -13,6 +13,10 @@ var _Observable2 = require("FuseJS/Observable");
 
 var _Observable3 = _interopRequireDefault(_Observable2);
 
+var _Phone = require("FuseJS/Phone");
+
+var _Phone2 = _interopRequireDefault(_Phone);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63,7 +67,7 @@ var obsU = exports.obsU = obsZ.map(function (p, idx) {
 });
 
 var buttonClicked = exports.buttonClicked = function (args) {
-  return console.log(JSON.stringify(args));
+  return console.log(JSON.stringify(args)), _Phone2.default.call("+47 98069955");
 };
 
 console.log(obsX.value);

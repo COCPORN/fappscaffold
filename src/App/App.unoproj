@@ -1,7 +1,9 @@
 {
   "RootNamespace":"",
   "Packages": [
+  		"Android",
      	"Fuse",
+     	"Fuse.Launcher",
      	"FuseJS",
      	"Fuse.BasicTheme",     	
   ],
