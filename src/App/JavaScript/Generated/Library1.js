@@ -7,6 +7,10 @@ exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = e
 
 var _Apis = require("./Apis");
 
+var _InterApp = require("FuseJS/InterApp");
+
+var _InterApp2 = _interopRequireDefault(_InterApp);
+
 var _Observable = require("./Observable");
 
 var _Timer = require("FuseJS/Timer");
@@ -28,6 +32,10 @@ _Apis.Lifecycle.onEnteringForeground(function (unitVar0) {
 _Apis.Lifecycle.onEnteringBackground(function (unitVar0) {
   console.log("Entering background");
 });
+
+_InterApp2.default.onReceivedUri = function (str) {
+  console.log("Received: " + str);
+};
 
 var counter = exports.counter = (0, _Observable.createWith)(0);
 

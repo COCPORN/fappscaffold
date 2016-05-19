@@ -8,6 +8,8 @@ module Module1 =
     Lifecycle.onEnteringForeground (fun () -> Console.log("Entering foreground"))
     Lifecycle.onEnteringBackground (fun () -> Console.log("Entering background"))
 
+    InterApp.onReceivedUri <- fun str -> Console.log ("Received: " + str)
+
     let counter = Observable.createWith 0
 
     Timer.create (fun () -> counter.value <- counter.value + 1) 1000 true
