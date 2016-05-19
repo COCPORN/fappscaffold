@@ -3,19 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = undefined;
+exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = exports.counter = undefined;
 
 var _Apis = require("./Apis");
 
 var _Observable = require("./Observable");
 
+var _Timer = require("FuseJS/Timer");
+
+var _Timer2 = _interopRequireDefault(_Timer);
+
 var _Observable2 = require("FuseJS/Observable");
 
 var _Observable3 = _interopRequireDefault(_Observable2);
-
-var _Phone = require("FuseJS/Phone");
-
-var _Phone2 = _interopRequireDefault(_Phone);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,6 +28,12 @@ _Apis.Lifecycle.onEnteringForeground(function (unitVar0) {
 _Apis.Lifecycle.onEnteringBackground(function (unitVar0) {
   console.log("Entering background");
 });
+
+var counter = exports.counter = (0, _Observable.createWith)(0);
+
+_Timer2.default.create(function (unitVar0) {
+  counter.value = counter.value + 1;
+}, 1000, true);
 
 var observableString = exports.observableString = (0, _Observable.createWith)("Testing");
 var observableNumber = exports.observableNumber = observableString.map(function (s) {
@@ -67,7 +73,7 @@ var obsU = exports.obsU = obsZ.map(function (p, idx) {
 });
 
 var buttonClicked = exports.buttonClicked = function (args) {
-  return console.log(JSON.stringify(args)), _Phone2.default.call("+47 98069955");
+  return console.log(JSON.stringify(args));
 };
 
 console.log(obsX.value);

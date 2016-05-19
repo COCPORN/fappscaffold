@@ -29,6 +29,7 @@
 			</StackPanel>
 			<Text Value="{numNames}" />
 			<Text Value="{untypedProjection}" />
+			<Text Value="{counter}" />
 		</StackPanel>
 		
 	</ClientPanel>
