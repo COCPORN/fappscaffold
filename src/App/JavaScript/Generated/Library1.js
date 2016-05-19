@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = undefined;
 
+var _Apis = require("./Apis");
+
 var _Observable = require("./Observable");
 
 var _Observable2 = require("FuseJS/Observable");
@@ -14,6 +16,14 @@ var _Observable3 = _interopRequireDefault(_Observable2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+_Apis.Lifecycle.onEnteringForeground(function (unitVar0) {
+  console.log("Entering foreground");
+});
+
+_Apis.Lifecycle.onEnteringBackground(function (unitVar0) {
+  console.log("Entering background");
+});
 
 var observableString = exports.observableString = (0, _Observable.createWith)("Testing");
 var observableNumber = exports.observableNumber = observableString.map(function (s) {

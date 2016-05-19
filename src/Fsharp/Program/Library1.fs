@@ -4,6 +4,10 @@ open Fuse
 open Fable.Core
 
 module Module1 =    
+
+    Lifecycle.onEnteringForeground (fun () -> Console.log("Entering foreground"))
+    Lifecycle.onEnteringBackground (fun () -> Console.log("Entering background"))
+
     let observableString = Observable.createWith "Testing"    
     let observableNumber = observableString.map(fun s -> s.Length)
     

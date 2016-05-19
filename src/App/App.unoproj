@@ -2,7 +2,8 @@
   "RootNamespace":"",
   "Packages": [
      	"Fuse",
-     	"Fuse.BasicTheme",
+     	"FuseJS",
+     	"Fuse.BasicTheme",     	
   ],
   "Includes": [
     "*",

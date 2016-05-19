@@ -1,5 +1,4 @@
-<App>
-	<JavaScript File="fablecore.js" /> 	
+<App>	
 	<JavaScript File="JavaScript/Generated/Library1.js" />
 
 	<ClientPanel>		
