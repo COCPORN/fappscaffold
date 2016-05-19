@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = exports.counter = undefined;
+exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = exports.timer = exports.counter = undefined;
 
 var _Environment = require("FuseJS/Environment");
 
@@ -22,6 +22,8 @@ var _Observable = require("./Observable");
 var _Timer = require("FuseJS/Timer");
 
 var _Timer2 = _interopRequireDefault(_Timer);
+
+var _fableCore = require("fable-core");
 
 var _Observable2 = require("FuseJS/Observable");
 
@@ -51,10 +53,21 @@ _InterApp2.default.onReceivedUri = function (str) {
 
 var counter = exports.counter = (0, _Observable.createWith)(0);
 
-_Timer2.default.create(function (unitVar0) {
+var timer = exports.timer = _Timer2.default.create(function (unitVar0) {
   counter.value = counter.value + 1;
 }, 1000, true);
 
+counter.addSubscriber(function (c) {
+  console.log(function () {
+    var clo1;
+    return clo1 = _fableCore.String.fsFormat("Counter changed: %d")(function (x) {
+      return x;
+    }), function (arg10) {
+      return clo1(arg10);
+    };
+  }()(c.value));
+  c.value >= 10 ? _Timer2.default.delete(timer) : null;
+});
 var observableString = exports.observableString = (0, _Observable.createWith)("Testing");
 var observableNumber = exports.observableNumber = observableString.map(function (s) {
   return s.length;

@@ -18,7 +18,11 @@ module Module1 =
 
     let counter = Observable.createWith 0
 
-    Timer.create (fun () -> counter.value <- counter.value + 1) 1000 true
+    let timer = Timer.create (fun () -> counter.value <- counter.value + 1) 1000 true
+
+    counter.addSubscriber(fun c -> 
+        Console.log(sprintf "Counter changed: %d" c.value)
+        if (c.value >= 10) then Timer.delete timer)
 
     let observableString = Observable.createWith "Testing"    
     let observableNumber = observableString.map(fun s -> s.Length)
