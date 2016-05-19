@@ -11,9 +11,7 @@ module Module1 =
     let unsafeObsX = Observable.createUnsafeWith "Hoheya!"
     unsafeObsX.valueOverride <- 15
     let obsY = Observable.createWith 89.
-    
-    // Doesn't work, the JavaScript doesn't map to the right format.
-    // It should be Observable('Paul', 'Ace'), but insists on being Observable(['Paul', 'Ace'])
+        
     let kiss = Observable.createList [| "Paul"; "Ace" |] 
 
     type Player = { name: string; age: int }
@@ -39,15 +37,10 @@ module Module1 =
             | :? string as str -> str + " matched"
             | _ -> failwith "Didn't expect that, no sir")
 
-    // Doesn't work because the callback uses two parameters and creates
-    // a curried function. For it to work with Fuse it needs to be a
-    // normal function call with two parameters
-    //let private obsU = obsZ.mapi(fun (p, idx) -> p + (idx |> float))
+    let obsU = obsZ.mapi(fun p idx -> p + (idx + 1 |> float))
 
     let buttonClicked args =     
         Console.log (Json.stringify args)
-        //let x = Args.toString args?x
-        //Console.log (x)
         
     Console.log (obsX.value)
     Console.log (obsY.value)

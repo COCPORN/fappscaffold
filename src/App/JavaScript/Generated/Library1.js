@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.X = exports.buttonClicked = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = undefined;
+exports.X = exports.buttonClicked = exports.obsU = exports.untypedProjection = exports.untypedObservable = exports.obsZ = exports.numNames = exports.names = exports.Player = exports.kiss = exports.obsY = exports.unsafeObsX = exports.obsX = exports.observableNumber = exports.observableString = undefined;
 
 var _Observable = require("./Observable");
 
@@ -47,6 +47,9 @@ var untypedProjection = exports.untypedProjection = untypedObservable.map(functi
   return typeof o === "string" ? (str = o, str + " matched") : function () {
     throw "Didn't expect that, no sir";
   }();
+});
+var obsU = exports.obsU = obsZ.map(function (p, idx) {
+  return p + (idx + 1);
 });
 
 var buttonClicked = exports.buttonClicked = function (args) {

@@ -9,6 +9,7 @@
 			<Text Value="{obsX}" /> 
 			<Text Value="{obsY}" />
 			<Text Value="{obsZ}" />
+			<Text Value="{obsU}" />
 			<Text Value="{plainObservable}" />
 			<Text Value="{untypedObservable}" />
 			<Text Value="{untypedProjection}" />
@@ -18,6 +19,13 @@
 						<Text Value="{name}" />
 						<Text Value="{age}" />
 					</StackPanel>
+				</Each>
+			</StackPanel>
+			<StackPanel>
+				<Each Items="{kiss}">
+					<Panel>
+						<Text Value="{}" />
+					</Panel>
 				</Each>
 			</StackPanel>
 			<Text Value="{numNames}" />
