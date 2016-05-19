@@ -45,5 +45,13 @@ var Lifecycle = exports.Lifecycle = function ($exports) {
     _Lifecycle2.default.onEnteringBackground = action;
   };
 
+  var onEnteringInteractive = $exports.onEnteringInteractive = function (action) {
+    _Lifecycle2.default.onEnteringInteractive = action;
+  };
+
+  var onExitedInteractive = $exports.onExitedInteractive = function (action) {
+    _Lifecycle2.default.onExitedInteractive = action;
+  };
+
   return $exports;
 }({});
