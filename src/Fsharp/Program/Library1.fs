@@ -42,7 +42,7 @@ module Module1 =
     // Doesn't work because the callback uses two parameters and creates
     // a curried function. For it to work with Fuse it needs to be a
     // normal function call with two parameters
-    let private obsU = obsZ.mapi(fun (p, idx) -> p + (idx |> float))
+    //let private obsU = obsZ.mapi(fun (p, idx) -> p + (idx |> float))
 
     let buttonClicked args =     
         Console.log (Json.stringify args)

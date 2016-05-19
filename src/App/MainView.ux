@@ -1,6 +1,6 @@
 <App>
-	<JavaScript File="fablecore.js" ux:Global="fable-core" /> 	
-	<JavaScript File="../JavaScript/Generated/Library1.js" />
+	<JavaScript File="fablecore.js" /> 	
+	<JavaScript File="JavaScript/Generated/Library1.js" />
 
 	<ClientPanel>		
 		<StackPanel>
