@@ -1,11 +1,11 @@
-<App Theme="Basic">
+<App>
 	<JavaScript File="fablecore.js" ux:Global="fable-core" /> 	
 	<JavaScript File="../JavaScript/Generated/Library1.js" />
 
 	<ClientPanel>		
 		<StackPanel>
 			<Text Value="{X}" />
-			<Button Text="Click me!" Clicked="{buttonClicked}" />
+			<Basic.Button Text="Click me!" Clicked="{buttonClicked}" />
 			<Text Value="{obsX}" /> 
 			<Text Value="{obsY}" />
 			<Text Value="{obsZ}" />
