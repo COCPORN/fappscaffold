@@ -61,6 +61,10 @@ module Module1 =
 
     let buttonClicked args =     
         Console.log (Json.stringify args)
+
+//        let cameraSettings = new Camera.PictureSettings()
+//
+//        Camera.takePicture(new Camera.PictureSettings(TargetWidth=640, TargetHeight=320, CorrectOrientation=true))
         
     Console.log (obsX.value)
     Console.log (obsY.value)

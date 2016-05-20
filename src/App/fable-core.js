@@ -1,7 +1,6 @@
 /* global define */
 
-
- "use strict";
+  "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -60,7 +59,7 @@
       }
       if (x instanceof Date && y instanceof Date) {
           return x < y ? -1 : (x > y ? 1 : 0);
-      }
+      }      
       var keys1 = Object.getOwnPropertyNames(x), keys2 = Object.getOwnPropertyNames(y);
       lengthComp = Util.compareTo(keys1.length, keys2.length);
       return lengthComp != 0 ? lengthComp : Seq.fold2(function (prev, k1, k2) {
@@ -322,19 +321,22 @@
   var FString = exports.String = {};
   FString.fsFormatRegExp = /%([0+ ]*)(-?\d+)?(?:\.(\d+))?(\w)/;
   FString.fsFormat = function (str) {
-    var _cont;
+    function isObject(x) {
+      return x !== null && typeof x === 'object'
+        && !(x instanceof Number) && !(x instanceof String) && !(x instanceof Boolean); 
+    };
     function formatOnce(str, rep) {
       return str.replace(FString.fsFormatRegExp, function (_, flags, pad, precision, format) {
         switch (format) {
           case "f": case "F": rep = rep.toFixed(precision || 6); break;
           case "g": case "G": rep = rep.toPrecision(precision); break;
           case "e": case "E": rep = rep.toExponential(precision); break;
-          case "A": 
+          case "A":
             rep = ( (rep instanceof Map) ? "map " : 
                     (rep instanceof Set) ? "set " : "") + JSON.stringify(rep, function(k, v) {
                     return v && v[Symbol.iterator] 
                              && !Array.isArray(v) 
-                             && !(typeof v === 'string' || v instanceof String)
+                             && isObject(v)
                              ? Array.from(v) : v;
                   });
             break;
@@ -354,6 +356,7 @@
                 ? makeFn(str2) : _cont(str2);
       }
     }
+    var _cont;
     return function (cont) {
       _cont = cont;
       return FString.fsFormatRegExp.test(str)
@@ -1221,6 +1224,11 @@
         ? [x, x + step] : null;
     }, first);
   };
+  Seq.rangeChar = function (first, last) {
+    return Seq.unfold(function (x) {
+      return (x <= last) ? [x, String.fromCharCode(x.charCodeAt(0) + 1)] : null;
+    }, first);
+  };
   Seq.range = function (first, last) {
     return Seq.rangeStep(first, 1, last);
   };
@@ -1354,16 +1362,24 @@
     };
     return e;
   };
-  Seq.take = Seq.truncate = function (n, xs) {
+  Seq.take = function (n, xs, truncate) {
     return Seq.delay(function () {
       var iter = xs[Symbol.iterator]();
       return Seq.unfold(function (i) {
         if (i < n) {
           var cur = iter.next();
-          return [cur.value, i + 1];
+          if (!cur.done) {
+            return [cur.value, i + 1];
+          }
+          else if (!truncate) {
+            throw "Seq has not enough elements";
+          }
         }
       }, 0);
     });
+  };
+  Seq.truncate = function (n, xs) {
+    return Seq.take(n, xs, true);
   };
   Seq.takeWhile = function (f, xs) {
     return Seq.delay(function () {

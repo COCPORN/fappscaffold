@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Args = exports.Json = exports.Console = undefined;
+exports.Fetch = exports.Args = exports.Json = exports.Console = undefined;
 
 var _fableCore = require("fable-core");
 
@@ -25,6 +25,14 @@ var Args = exports.Args = function ($exports) {
         return clo1(arg10);
       };
     }()(arg);
+  };
+
+  return $exports;
+}({});
+
+var Fetch = exports.Fetch = function ($exports) {
+  var fetch = $exports.fetch = function (uri, request) {
+    throw "JS only";
   };
 
   return $exports;

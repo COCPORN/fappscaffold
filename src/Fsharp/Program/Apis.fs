@@ -16,6 +16,17 @@ module Args =
     let toString arg =
         sprintf "%O" arg
 
+//[<Import("", "FuseJS/Promises")>]
+//module Promises =
+//    type Promise<'T, 'R> = 
+//        abstract member ``then`` : Action<'T> -> Promise<'T, 'R>
+//        abstract member ``then`` : Action<'T> * Action<'R> -> Promise<'T, 'R>        
+//        abstract member catch : ('R -> unit)
+
+//    type Promise<'T, 'R> = 
+//        inherit IPromise<'T, 'R>
+
+
 [<Import("", "FuseJS/Lifecycle")>]
 module Lifecycle =
     
@@ -68,3 +79,48 @@ module Environment =
     let mutable preview : bool = failwith "JS only"
     let mutable mobile : bool = failwith "JS only"
     let mutable desktop : bool = failwith "JS only"
+
+[<Import("", "FuseJS/Camera")>]
+module Camera =
+    type Result =
+        member this.path with get() : string = failwith "JS only"
+        member this.name with get() : string = failwith "JS only"            
+    
+    type IThenable = 
+        abstract member ``then`` : (obj -> Result) -> IThenable
+        abstract member catch : (obj -> unit) -> unit
+            
+    type PictureSettings =                 
+        member this.targetWidth with set(value:int) = failwith "JS only"
+        member this.targetHeight with set(value:int) = failwith "JS only"
+        member this.correctOrientation with set(value:bool) = failwith "JS only"
+        
+    let takePicture (configuration:PictureSettings) : IThenable =
+        failwith "JS only"
+
+module Fetch =
+    type Headers = 
+        abstract member get : string with get
+
+    type Body = 
+        abstract member body : string with get
+        
+
+    type Response =
+        abstract member ``type`` : string with get
+        abstract member url : string with get
+        abstract member useFinalUrl : bool with get
+        abstract member status : int with get
+        abstract member ok : bool with get
+        abstract member statusText : string with get
+        abstract member headers : Headers with get
+        abstract member body : Body with get
+
+    type Error = 
+        abstract member description : string with get
+
+    type Request =
+        abstract member data : string with get
+
+    let fetch (uri: string) (request : string) : Promise<Response> =
+        failwith "JS only"
